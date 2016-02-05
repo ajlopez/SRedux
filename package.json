@@ -1,0 +1,17 @@
+{ "name": "sredux"
+, "description": "Simple Redux-like library"
+, "keywords": [ "redux", "reducers", "javascript", "nodejs" ]
+, "version": "0.0.1alpha"
+, "author": "Angel 'Java' Lopez <webmaster@ajlopez.com> (http://www.ajlopez.com)"
+, "repository": { "type": "git", "url": "git://github.com/ajlopez/SRedux.git" }
+, "main": "./lib/sredux.js"
+, "engines": { "node": ">= 0.10.0" }
+, "scripts": {
+    "test": "simpleunit test -r"
+  }
+, "dependencies": {
+  }
+, "devDependencies": {
+    "simpleunit": "0.0.7"
+  }
+}
