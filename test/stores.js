@@ -36,3 +36,16 @@ exports['create store with reducer'] = function (test) {
     test.equal(store.getState(), 1);
 };
 
+exports['dispatch using reducer and initial state'] = function (test) {
+    function reducer(state, action) {
+        return state + 1;
+    }
+    
+    var store = sredux.createStore(reducer, 0);
+    
+    test.equal(store.dispatch(null), 1);
+    test.equal(store.getState(), 1);
+    test.equal(store.dispatch(null), 2);
+    test.equal(store.getState(), 2);
+};
+
