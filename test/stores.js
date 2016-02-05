@@ -49,3 +49,19 @@ exports['dispatch using reducer and initial state'] = function (test) {
     test.equal(store.getState(), 2);
 };
 
+exports['subscribe to new states'] = function (test) {
+    function reducer(state, action) {
+        return state + 1;
+    }
+    
+    var store = sredux.createStore(reducer, 0);
+
+    store.subscribe(function () {
+        var state = store.getState();
+        test.ok(state);
+        test.equal(state, 1);
+    });
+    
+    store.dispatch(null);
+};
+
