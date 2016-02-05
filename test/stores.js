@@ -65,3 +65,24 @@ exports['subscribe to new states'] = function (test) {
     store.dispatch(null);
 };
 
+exports['subscribe and unsubscribe'] = function (test) {
+    function reducer(state, action) {
+        return state + 1;
+    }
+    
+    var store = sredux.createStore(reducer, 0);
+    
+    var counter = 0;
+
+    var unsubscribe = store.subscribe(function () {
+        counter++;
+        var state = store.getState();
+        test.ok(state);
+        test.equal(state, counter);
+    });
+    
+    store.dispatch(null);
+    store.dispatch(null);
+    unsubscribe();
+};
+
